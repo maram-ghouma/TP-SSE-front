@@ -1,45 +1,429 @@
-function App() {
-  return (
-    <div className="flex flex-col items-center justify-center h-screen text-red-300 bg-gradient-to-br from-gray-300 via-teal-700 to-gray-800">
-      <div className="flex items-center animate-bounce">
-        <svg viewBox="0 0 64 64" className="w-32 text-indigo-700 fill-current">
-          <path d="M52.275 22.147a63.008 63.008 0 0 0-2.025-.637c.112-.462.212-.925.313-1.387 1.537-7.45.524-13.437-2.888-15.412-3.287-1.888-8.65.075-14.075 4.8-.538.462-1.063.95-1.563 1.437-.337-.325-.687-.65-1.037-.962-5.688-5.05-11.387-7.175-14.8-5.188-3.275 1.9-4.25 7.537-2.875 14.587.138.7.288 1.388.463 2.088-.8.224-1.588.474-2.325.737C4.788 24.522 0 28.172 0 31.947c0 3.9 5.1 7.812 12.037 10.187.563.187 1.125.375 1.7.537a45.04 45.04 0 0 0-.5 2.25c-1.312 6.937-.287 12.437 2.988 14.324 3.375 1.95 9.05-.05 14.575-4.887.438-.387.875-.787 1.312-1.212.55.537 1.125 1.05 1.7 1.55 5.35 4.6 10.638 6.462 13.9 4.574 3.375-1.95 4.475-7.862 3.05-15.061a52.467 52.467 0 0 0-.374-1.688c.4-.112.787-.237 1.175-.362C58.775 39.772 64 35.909 64 31.947c0-3.787-4.925-7.462-11.725-9.8zM35.362 11.536c4.65-4.05 8.988-5.638 10.963-4.5 2.112 1.212 2.925 6.112 1.6 12.55a20.19 20.19 0 0 1-.287 1.249 63.994 63.994 0 0 0-8.413-1.325 63.153 63.153 0 0 0-5.325-6.637c.488-.463.962-.9 1.462-1.337zM20.9 38.434a86.067 86.067 0 0 0 1.975 3.237 56.605 56.605 0 0 1-5.8-.937c.55-1.8 1.238-3.662 2.038-5.562a82.583 82.583 0 0 0 1.787 3.262zm-3.787-15.037c1.8-.4 3.712-.725 5.7-.975a73.891 73.891 0 0 0-1.925 3.175 73.904 73.904 0 0 0-1.776 3.25 59.594 59.594 0 0 1-2-5.45zm3.425 8.612a78.537 78.537 0 0 1 2.674-5.074 75.374 75.374 0 0 1 3.05-4.863A78.408 78.408 0 0 1 32 21.86c1.95 0 3.875.075 5.737.212a87.325 87.325 0 0 1 3.038 4.838 85.138 85.138 0 0 1 2.712 5.05 82.936 82.936 0 0 1-2.7 5.1 85.374 85.374 0 0 1-3.024 4.874c-1.863.137-3.8.2-5.763.2-1.962 0-3.863-.063-5.7-.175a76.007 76.007 0 0 1-5.762-9.95zm22.574 6.4a86.342 86.342 0 0 0 1.825-3.337c.8 1.812 1.5 3.65 2.113 5.537-1.938.437-3.9.775-5.875 1a83.722 83.722 0 0 0 1.938-3.2zm1.8-9.562c-.587-1.1-1.187-2.2-1.812-3.275a81.255 81.255 0 0 0-1.913-3.15c2.013.25 3.938.588 5.738 1a55.315 55.315 0 0 1-2.012 5.425zM32.026 14.785a54.888 54.888 0 0 1 3.7 4.475 81.997 81.997 0 0 0-7.438 0 63.146 63.146 0 0 1 3.738-4.475zm-14.5-7.662c2.1-1.225 6.763.525 11.675 4.875.313.275.625.575.95.875a63.504 63.504 0 0 0-5.362 6.637c-2.826.25-5.625.688-8.4 1.3-.163-.637-.3-1.287-.438-1.937-1.175-6.05-.4-10.612 1.575-11.75zm-3.062 32.949a31.894 31.894 0 0 1-1.55-.488c-2.663-.837-5.688-2.162-7.876-3.9a5.609 5.609 0 0 1-2.35-3.737c0-2.287 3.95-5.212 9.65-7.2.713-.25 1.438-.475 2.163-.687a66.462 66.462 0 0 0 3.063 7.95 68.322 68.322 0 0 0-3.1 8.062zM29.038 52.32a22.88 22.88 0 0 1-7.05 4.412 5.533 5.533 0 0 1-4.413.163c-1.987-1.15-2.813-5.563-1.688-11.5.138-.7.288-1.4.463-2.087 2.8.6 5.625 1.012 8.487 1.225a65.963 65.963 0 0 0 5.4 6.674c-.4.388-.8.763-1.2 1.113zm3.062-3.037a59.114 59.114 0 0 1-3.788-4.538c1.2.05 2.438.075 3.688.075 1.288 0 2.55-.025 3.8-.087a53.904 53.904 0 0 1-3.7 4.55zm16.337 3.75a5.555 5.555 0 0 1-2.062 3.912c-1.987 1.15-6.225-.35-10.8-4.275-.525-.45-1.05-.938-1.588-1.438a61.833 61.833 0 0 0 5.276-6.7 61.623 61.623 0 0 0 8.525-1.312c.125.513.237 1.025.337 1.525.612 2.7.712 5.512.313 8.287zm2.276-13.437c-.35.112-.7.225-1.063.325a63.494 63.494 0 0 0-3.188-7.975 63.177 63.177 0 0 0 3.063-7.862c.65.187 1.275.387 1.875.587 5.825 2 9.913 4.975 9.913 7.25 0 2.45-4.363 5.612-10.6 7.675zM32 37.722a5.724 5.724 0 0 0 5.725-5.725A5.724 5.724 0 0 0 32 26.272a5.724 5.724 0 0 0-5.725 5.725A5.724 5.724 0 0 0 32 37.722z" />
-        </svg>
-        <span className="pl-5 pr-2 text-6xl">+</span>
-        <svg
-          className="w-32 text-indigo-700 fill-current"
-          viewBox="0 0 64 64"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M13.5 11.1C15.3 3.9 19.8.3 27 .3c10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 27.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"
-            transform="translate(5 16)"
-          ></path>
-        </svg>
+
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { io, Socket } from 'socket.io-client';
+import { TypingIndicator } from './typing';
+
+interface Reaction {
+  emoji: string; 
+  author: string;
+}
+
+interface Message {
+  id: number;
+  author: string;
+  content: string;
+  timestamp?: Date;
+  reactions?: Reaction[];
+}
+
+const emojiMap: { [key: string]: string } = {
+  'heart': '❤️',
+  'laugh': '😂',
+  'cry': '😢',
+  'angry': '😠',
+  'scream': '😱', 
+  'thumbs_up': '👍',
+  'thumbs_down': '👎',
+};
+
+export default function App() {
+  const [socket, setSocket] = useState<Socket | null>(null);
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [activeReactionMenu, setActiveReactionMenu] = useState<number | null>(null);
+  const [newMessage, setNewMessage] = useState('');
+  const [user, setUser] = useState('');
+  const [isConnected, setIsConnected] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
+  const [typingUsers, setTypingUsers] = useState<{[key: string]: boolean}>({});
+  const typingTimeoutRef = useRef<NodeJS.Timeout>();
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [isAtBottom, setIsAtBottom] = useState(true);
+
+  // Initialize socket connection
+  
+  useEffect(() => {
+    if (user) {
+      const newSocket = io('http://localhost:3000'); 
+      newSocket.on('load_messages', (messages: Message[]) => {
+        const updatedMessages = messages.map(message => ({
+          ...message,
+          reactions: message.reactions?.map(r => ({
+            ...r,
+            name: emojiMap[r.emoji] || r.emoji,
+          })) || []
+        }));
+        setMessages(updatedMessages);
+      });
+      
+      newSocket.on('connect', () => {
+        setIsConnected(true);
+        console.log('Connected to socket server');
+      });
+      
+      newSocket.on('disconnect', () => {
+        setIsConnected(false);
+        console.log('Disconnected from socket server');
+      });
+      
+      newSocket.on('new_message', (message: Message) => {
+        setMessages(prevMessages => [...prevMessages, message]);
+      });
+      
+      newSocket.on('message_updated', (updatedMessage: Message) => {
+  const translatedMessage = {
+    ...updatedMessage,
+    // Ensure reactions array exists even if empty
+    reactions: updatedMessage.reactions?.map(r => ({
+      ...r,
+      name: emojiMap[r.emoji] || r.emoji,
+    })) || [] // Important: Default to empty array if reactions is undefined
+  };
+  
+  setMessages(prev =>
+    prev.map(msg => 
+      msg.id === translatedMessage.id 
+        ? translatedMessage 
+        : msg
+    )
+  );
+});
+      
+      setSocket(newSocket);
+      
+      return () => {
+        newSocket.disconnect();
+      };
+    }
+  }, [user]);
+  
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+const handleTyping = useCallback(() => {
+  if (!socket) return;
+  
+  if (!isTyping) {
+    socket.emit('typing_start', { userId: user, chatId: 'current-chat' });
+    setIsTyping(true);
+  }
+
+  // Clear any existing timeout
+  clearTimeout(typingTimeoutRef.current);
+  
+  // Set new timeout
+  typingTimeoutRef.current = setTimeout(() => {
+    if (socket) {
+      socket.emit('typing_end', { userId: user, chatId: 'current-chat' });
+    }
+    setIsTyping(false);
+  }, 2000);
+}, [socket, user, isTyping]);
+
+useEffect(() => {
+  if (!socket) return;
+
+  const handleUserTyping = (data: { userId: string; isTyping: boolean }) => {
+  setTypingUsers(prev => ({
+    ...prev,
+    [data.userId]: data.isTyping
+  }));
+  
+  // Only scroll if we're near the bottom
+  if (isAtBottom) {
+    setTimeout(() => {
+      messagesEndRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+      });
+    }, 100);
+  }
+};
+
+  socket.on('user_typing', handleUserTyping);
+
+  return () => {
+    clearTimeout(typingTimeoutRef.current);
+    if (socket) {
+      socket.off('user_typing', handleUserTyping);
+    }
+  };
+}, [socket, user,messages]);
+  useEffect(() => {
+  if (isAtBottom) {
+    messagesEndRef.current?.scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+}, [messages, isAtBottom]);
+
+// 5. Initial scroll to bottom
+useEffect(() => {
+  setTimeout(() => {
+    messagesEndRef.current?.scrollIntoView();
+  }, 300);
+}, []);
+const sendMessage = () => {
+  if (newMessage.trim() && socket) {
+    // Clear typing state immediately
+    setIsTyping(false);
+    clearTimeout(typingTimeoutRef.current);
+    socket.emit('typing_end', { userId: user, chatId: 'current-chat' });
+    
+    const messageData = {
+      author: user,
+      content: newMessage
+    };
+    
+    socket.emit('send_message', messageData);
+    setNewMessage('');
+  }
+};
+  
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      sendMessage();
+    }
+  };
+  
+const addReaction = (messageId: number, reactionName: string) => {
+  if (socket) {
+    // Optimistically update the UI
+    setMessages(prev => prev.map(msg => {
+      if (msg.id === messageId) {
+        const existingReactions = msg.reactions || [];
+        return {
+          ...msg,
+          reactions: [
+            ...existingReactions,
+            { emoji: reactionName, author: user }
+          ]
+        };
+      }
+      return msg;
+    }));
+    
+    socket.emit('add_reaction', { messageId, emoji: reactionName, userId: user });
+  }
+  setActiveReactionMenu(null);
+};
+const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+  const { scrollTop, scrollHeight, clientHeight } = e.currentTarget;
+  const atBottom = scrollHeight - scrollTop <= clientHeight + 50; // 50px threshold
+  setIsAtBottom(atBottom);
+};
+
+const removeReaction = (messageId: number, reactionName: string) => {
+  if (socket) {
+    // Optimistically update the UI
+    setMessages(prev => prev.map(msg => {
+      if (msg.id === messageId) {
+        const updatedReactions = (msg.reactions || []).filter(
+          r => !(r.emoji === reactionName && r.author === user)
+        );
+        return {
+          ...msg,
+          reactions: updatedReactions.length > 0 ? updatedReactions : undefined
+        };
+      }
+      return msg;
+    }));
+    
+    socket.emit('remove_reaction', { 
+      messageId, 
+      emoji: reactionName, // Include the emoji name
+      userId: user 
+    });
+  }
+  setActiveReactionMenu(null);
+};
+  
+  const selectUser = (selectedUser: string) => {
+    setUser(selectedUser);
+  };
+  
+  const getEmojiFromName = (name: string) => {
+    return emojiMap[name as keyof typeof emojiMap] || '❓';
+  };
+
+  const hasUserReacted = (message: Message, emoji: string) => {
+    return message.reactions?.some(r => r.emoji === emoji && r.author === user);
+  };
+  
+  // User selection screen
+  if (!user) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+        <div className="p-8 bg-white rounded-lg shadow-md w-96">
+          <h1 className="mb-6 text-2xl font-bold text-center text-blue-600">Select Your User</h1>
+          <div className="flex flex-col space-y-4">
+            <button 
+              onClick={() => selectUser('Alice')}
+              className="p-4 font-medium text-white bg-pink-500 rounded-md hover:bg-pink-600"
+            >
+              I am Alice
+            </button>
+            <button 
+              onClick={() => selectUser('Jason')}
+              className="p-4 font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600"
+            >
+              I am Jason
+            </button>
+          </div>
+        </div>
       </div>
-      <p className="mt-6 tracking-wide">
-        Edit <code>src/App.tsx</code> and save to reload.
-      </p>
-      <div className="flex justify-center mt-4">
-        <a
-          className="px-4 py-2 text-white bg-indigo-500 rounded hover:bg-indigo-600"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <a
-          className="px-4 py-2 ml-4 text-white bg-indigo-500 rounded hover:bg-indigo-600"
-          href="https://tailwindcss.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Tailwind CSS v3.x
-        </a>
+    );
+  }
+  console.log('user is:', user);
+
+  // Chat interface
+  return (
+    <div className="flex flex-col h-screen bg-gray-50">
+      <div className="p-4 bg-teal-600 shadow-md">
+        <div className="flex items-center justify-between w-full">
+          <h1 className="text-xl font-bold text-white">
+           {user === 'Jason' ? 'Alice' : user === 'Alice' ? 'Jason' : user}
+          </h1>
+          <div className={`flex items-center px-3 py-1 rounded-full ${isConnected ? 'text-teal-100 bg-teal-700' : 'text-pink-100 bg-pink-300'}`}>
+            <div className={`w-3 h-3 mr-2 rounded-full ${isConnected ? 'bg-teal-200' : 'bg-pink-200'}`}></div>
+            {isConnected ? 'Connected' : 'Disconnected'}
+          </div>
+        </div>
+      </div>
+      
+      {/* Messages */}
+      <div className="flex-1 p-4 overflow-y-auto bg-gray-50">
+        <div className="flex flex-col space-y-3 w-full">
+          {messages.length > 0 ? (
+            messages.map((msg, index) => (
+              <div 
+                key={index} 
+                className={`flex flex-col ${
+                  msg.author === user 
+                    ? 'items-end' 
+                    : 'items-start'
+                }`}
+              >
+                <div className={`p-3 rounded-2xl shadow-sm ${
+                  msg.author === user 
+                    ? 'bg-teal-400 text-white rounded-tr-none' 
+                    : 'bg-pink-100 text-gray-800 rounded-tl-none'
+                  } max-w-xs`}
+                >
+                  <div className="font-medium text-sm">{msg.author}</div>
+                  <div>{msg.content}</div>
+                  {msg.timestamp && (
+                    <div className="text-xs opacity-70">
+                      {new Date(msg.timestamp).toLocaleTimeString()}
+                    </div>
+                  )}
+
+                  {/* Reactions */}
+                  <div className="flex items-center mt-2">
+                    {/* Display existing reactions */}
+                    {(msg.reactions || []).length > 0 && (
+                      <div className="flex mr-2 space-x-1">
+                        {(msg.reactions || []).map((reaction, i) => (
+                          <div
+                            key={i}
+                            className={`text-sm px-2 py-1 rounded-full ${
+                              msg.author === user 
+                                ? 'bg-teal-400 text-white' 
+                                : 'bg-pink-200 text-gray-700'
+                            }`}
+                            title={`Reacted by ${reaction.author}`}
+                          >
+                            {getEmojiFromName(reaction.emoji)}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    
+                    {/* Reaction button */}
+                    <div className="relative">
+                      <button
+                        onClick={() => setActiveReactionMenu(activeReactionMenu === msg.id ? null : msg.id)}
+                        className={`text-opacity-70 hover:text-opacity-100 transition-colors ${
+                          msg.author === user ? 'text-teal-100' : 'text-pink-300'
+                        }`}
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </button>
+                      
+                      {/* Emoji picker */}
+                      {activeReactionMenu === msg.id && (
+                        <div className="absolute bottom-full left-0 mb-2 bg-white rounded-lg shadow-lg p-2 flex items-center border border-gray-200 z-10">
+                          {['heart', 'laugh', 'cry', 'angry', 'scream', 'thumbs_up', 'thumbs_down'].map((emoji) => {
+                            const isReacted = hasUserReacted(msg, emoji);
+                            return (
+                              <button
+                                key={emoji}
+                                onClick={() => {
+                                  if (isReacted) {
+                                    removeReaction(msg.id!,emoji);
+                                  } else {
+                                    addReaction(msg.id!, emoji);
+                                  }
+                                }}
+                                className={`p-1.5 rounded-lg ${isReacted ? 'bg-teal-50' : 'hover:bg-pink-50'} transition-colors`}
+                              >
+                                <span className="text-lg">
+                                  {getEmojiFromName(emoji)}
+                                </span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="p-4 text-center text-teal-600 bg-white rounded-lg shadow-sm border border-pink-100">
+              No messages yet. Start the conversation!
+            </div>
+          )}
+        </div>
+        <TypingIndicator typingUsers={typingUsers} />
+        
+        <div ref={messagesEndRef} />
+      </div>
+      
+      {/* Message input */}
+      <div className="p-4 bg-white border-t border-gray-200">
+        <div className="flex w-full">
+          
+          <input
+            type="text"
+            value={newMessage}
+              onChange={(e) => {
+    setNewMessage(e.target.value);
+    if (e.target.value.trim().length > 0) {
+      handleTyping();
+    } else {
+      // If message is empty, stop typing
+      setIsTyping(false);
+      clearTimeout(typingTimeoutRef.current);
+      socket?.emit('typing_end', { userId: user, chatId: 'current-chat' });
+    }
+  }}
+            onKeyPress={handleKeyPress}
+            placeholder="Type a message..."
+            className="flex-1 p-2 mr-2 border border-pink-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-teal-300 focus:border-teal-400"
+          />
+          <button 
+            onClick={sendMessage} 
+            disabled={!newMessage.trim()}
+            className="px-4 py-2 text-white bg-teal-500 rounded-lg hover:bg-teal-600 disabled:bg-teal-300 transition-colors"
+          >
+            Send
+          </button>
+        </div>
       </div>
     </div>
   );
 }
-
-export default App;

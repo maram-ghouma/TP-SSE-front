@@ -39,7 +39,6 @@ export default function App() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [isAtBottom, setIsAtBottom] = useState(true);
 
-  // Initialize socket connection
   
   useEffect(() => {
     if (user) {
@@ -72,11 +71,10 @@ export default function App() {
       newSocket.on('message_updated', (updatedMessage: Message) => {
   const translatedMessage = {
     ...updatedMessage,
-    // Ensure reactions array exists even if empty
     reactions: updatedMessage.reactions?.map(r => ({
       ...r,
       name: emojiMap[r.emoji] || r.emoji,
-    })) || [] // Important: Default to empty array if reactions is undefined
+    })) || [] 
   };
   
   setMessages(prev =>
@@ -97,8 +95,12 @@ export default function App() {
   }, [user]);
   
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+      if (isAtBottom) {
+    messagesEndRef.current?.scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+  }, [messages,isAtBottom]);
 
 const handleTyping = useCallback(() => {
   if (!socket) return;
@@ -108,10 +110,8 @@ const handleTyping = useCallback(() => {
     setIsTyping(true);
   }
 
-  // Clear any existing timeout
   clearTimeout(typingTimeoutRef.current);
   
-  // Set new timeout
   typingTimeoutRef.current = setTimeout(() => {
     if (socket) {
       socket.emit('typing_end', { userId: user, chatId: 'current-chat' });
@@ -129,7 +129,6 @@ useEffect(() => {
     [data.userId]: data.isTyping
   }));
   
-  // Only scroll if we're near the bottom
   if (isAtBottom) {
     setTimeout(() => {
       messagesEndRef.current?.scrollIntoView({
@@ -148,8 +147,8 @@ useEffect(() => {
       socket.off('user_typing', handleUserTyping);
     }
   };
-}, [socket, user,messages]);
-  useEffect(() => {
+}, [socket, user,messages,isAtBottom]);
+useEffect(() => {
   if (isAtBottom) {
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth"
@@ -157,7 +156,6 @@ useEffect(() => {
   }
 }, [messages, isAtBottom]);
 
-// 5. Initial scroll to bottom
 useEffect(() => {
   setTimeout(() => {
     messagesEndRef.current?.scrollIntoView();
@@ -165,7 +163,6 @@ useEffect(() => {
 }, []);
 const sendMessage = () => {
   if (newMessage.trim() && socket) {
-    // Clear typing state immediately
     setIsTyping(false);
     clearTimeout(typingTimeoutRef.current);
     socket.emit('typing_end', { userId: user, chatId: 'current-chat' });
@@ -188,7 +185,6 @@ const sendMessage = () => {
   
 const addReaction = (messageId: number, reactionName: string) => {
   if (socket) {
-    // Optimistically update the UI
     setMessages(prev => prev.map(msg => {
       if (msg.id === messageId) {
         const existingReactions = msg.reactions || [];
@@ -209,13 +205,12 @@ const addReaction = (messageId: number, reactionName: string) => {
 };
 const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
   const { scrollTop, scrollHeight, clientHeight } = e.currentTarget;
-  const atBottom = scrollHeight - scrollTop <= clientHeight + 50; // 50px threshold
+  const atBottom = scrollHeight - scrollTop <= clientHeight + 50; 
   setIsAtBottom(atBottom);
 };
 
 const removeReaction = (messageId: number, reactionName: string) => {
   if (socket) {
-    // Optimistically update the UI
     setMessages(prev => prev.map(msg => {
       if (msg.id === messageId) {
         const updatedReactions = (msg.reactions || []).filter(
@@ -231,7 +226,7 @@ const removeReaction = (messageId: number, reactionName: string) => {
     
     socket.emit('remove_reaction', { 
       messageId, 
-      emoji: reactionName, // Include the emoji name
+      emoji: reactionName, 
       userId: user 
     });
   }
@@ -250,7 +245,6 @@ const removeReaction = (messageId: number, reactionName: string) => {
     return message.reactions?.some(r => r.emoji === emoji && r.author === user);
   };
   
-  // User selection screen
   if (!user) {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
@@ -276,7 +270,6 @@ const removeReaction = (messageId: number, reactionName: string) => {
   }
   console.log('user is:', user);
 
-  // Chat interface
   return (
     <div className="flex flex-col h-screen bg-gray-50">
       <div className="p-4 bg-teal-600 shadow-md">
@@ -292,7 +285,7 @@ const removeReaction = (messageId: number, reactionName: string) => {
       </div>
       
       {/* Messages */}
-      <div className="flex-1 p-4 overflow-y-auto bg-gray-50">
+      <div className="flex-1 p-4 overflow-y-auto bg-gray-50" onScroll={handleScroll} >
         <div className="flex flex-col space-y-3 w-full">
           {messages.length > 0 ? (
             messages.map((msg, index) => (
@@ -405,7 +398,6 @@ const removeReaction = (messageId: number, reactionName: string) => {
     if (e.target.value.trim().length > 0) {
       handleTyping();
     } else {
-      // If message is empty, stop typing
       setIsTyping(false);
       clearTimeout(typingTimeoutRef.current);
       socket?.emit('typing_end', { userId: user, chatId: 'current-chat' });
